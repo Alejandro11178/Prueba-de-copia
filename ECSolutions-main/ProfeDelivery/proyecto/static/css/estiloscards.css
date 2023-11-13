@@ -1,0 +1,11 @@
+.cards {
+    display: flex;
+    grid-template-rows: auto;
+}
+
+.card {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 350px;
+    height: auto;
+}

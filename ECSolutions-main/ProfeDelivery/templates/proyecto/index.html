@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estiloscards.css' %}">
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/estilos.css' %}">
+    <title>Profe-Delivery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<header>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <div class="logo">ProfeDelivery</div>
+        <div class="auth-links">
+            
+            <!-- Muestra diferentes enlaces según si el usuario está autenticado o no -->
+            {% if user.is_authenticated %}
+                <a class="button" href='{% url 'logout' %}'>Logout</a>
+                <a href='#'> @{{ user.username }} </a>
+            {% else %}
+                <a class="button" href="{% url 'login' %}">Iniciar Sesión</a>
+                <a class="button" href="{% url "proyecto:registro" %}">Registrarse</a>
+            {% endif %}
+            
+        </div>
+    </div>
+        <!-- Contenido principal de la página -->
+    <div class="container text-center mt-5">
+        <h1>Bienvenido a ProfeDelivery</h1>
+        <img src="{% static 'img/profe-delivery.png'%}" alt="profe-delivery" height="450px" width="700px">
+        {% if user.is_authenticated %}
+            {% else %}
+            <p>Esta es una página de inicio para usuarios no logeados. Puedes iniciar sesión o registrarte para acceder a más contenido.</p>
+            {% endif %}
+        
+</header>
+<body>
+    <div class="container-cards">
+        <form method="get">
+            <!-- Barra de búsqueda de profesores -->
+            <div class="container mt-5">
+                <form class="form-inline">
+                    <div class="form-group mr-2">
+                        <input type="text" class="form-control" placeholder="Buscar profesores" name="nombre" value="{{request.GET.nombre}}">
+                    </div>
+                    <div class="form-group mr-2">
+                        <select class="form-control" name="nivel" value="{{request.GET.nivel}}">
+                            <option value="">Seleccione una opción</option>
+                            <option value="Básica">Básica</option>
+                            <option value="Media">Media</option>
+                            <option value="Universitaria">Universitaria</option>
+                        </select>
+                    </div>
+                    <div class="form-group mr-2">
+                        <input type="text" class="form-control" placeholder="Materia" name="materia" value="{{request.GET.materia}}">
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="valor">Valor monetario desde:</label>
+                        <input type="number" class="form-control" name="valor" id="valor" placeholder="Ingrese el valor mínimo" value="{{ request.GET.valor }}">
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="valor2">Valor monetario hasta:</label>
+                        <input type="number" class="form-control" name="valor2" id="valor2" placeholder="Ingrese el valor máximo" value="{{ request.GET.valor2 }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+            </div>
+            <!-- Contenedor para las tarjetas de los profesores disponibles -->
+            <div class="cards">
+            {% if object_list %}
+                    {% for profesor in object_list %}
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Profesor: {{profesor.nombre}} {{profesor.apellidos}}</h2>
+                            <hr>
+                            <h4>Correo: {{ profesor.email }}</h4>
+                            <p>Nivel: {{profesor.nivel}}</p>
+                            <p>Materia: {{profesor.materia}}</p>
+                            <p>Horario: {{profesor.horario}}</p>
+                            <p>Precio: {{profesor.precio}}</p>
+                            <p>Teléfono: {{profesor.telefono}}</p>
+                            <a href="#" class="button">Contactar</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+            {% else  %}
+            <h2>No existen profesores registrados.</h2>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,144 @@
+
+
+.navbar {
+    background-color: #439A97;
+    color: #fff;
+    padding: 10px 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif; 
+}
+
+.navbar .logo {
+    font-size: 24px;
+    margin-left: 20px;
+    font-family: Arial, sans-serif; 
+}
+
+.navbar .auth-links {
+    float: right;
+    margin-right: 20px;
+    font-family: Arial, sans-serif; 
+}
+
+.button {
+    background-color: #296364;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.auth-links a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+    font-family: Arial, sans-serif; 
+}
+
+
+/*background: -webkit-linear-gradient(to right, hsla(152, 77%, 77%, 0.555), hsla(164, 35%, 19%, 0.412)), url('proyecto/img/profe-delivery.png');  /* Chrome 10-25, Safari 5.1-6 */
+/*background: linear-gradient(to right, hsla(152, 78%, 77%, 0.888), hsla(164, 35%, 19%, 0.811)), url('proyecto/img/profe-delivery.png'); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+.content {
+    padding: 20px;
+    min-height: calc(100vh - 170px); 
+}
+
+footer {
+    background-color: #439A97;
+    color: #fff;
+    padding: 20px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.search-bar {
+    text-align: center;
+    padding: 1%;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    background-color: #296364;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos para el contenedor principal */
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+    background-color: #ffe6e6;
+}
+
+/* Estilos para el contenido principal */
+.content {
+    padding: 20px;
+    min-height: calc(100vh - 170px); /* Altura mínima para evitar que se recorte el contenido */
+}
+
+/* Estilos para el formulario registro */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    color: #0078D4; /* Color azul de Microsoft */
+}
+label {
+    color: #333;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+input[type="submit"] {
+    background-color: #0078D4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #005A9E; /* Color azul oscuro de Microsoft al pasar el mouse */
+}
+
